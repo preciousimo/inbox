@@ -1,0 +1,24 @@
+/* START CONFIGURATION */
+html, body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* FOOTER */
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer, .push {
+    height: 50px;
+}
+
+/* NAVBAR */
+#btn-nav {
+    float: right;
+    margin-right: 25px;
+    color: #fff;
+    cursor: pointer;
+}
