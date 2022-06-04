@@ -26,6 +26,17 @@
 
 <body>
     <div class="wrapper">
+
+        <!-- Background image -->
+        <style>
+            body{
+                background-image: url("/static/img/home.jpg/");
+                background-position: 0px;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        </style>
         <!-- Navbar -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -97,6 +108,23 @@
     <!-- Typed JS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <!-- Static JS -->
+    <script src={% static "js/script.js" %}></script>
+    <!-- Typed JS -->
+    {% block typed %}
+    <script>
+        var typed = new Typed('#element', {
+            strings: [
+                'are an oil company',
+                'extract oil and gas',
+                'have the best deals',
+                'offer free quote',
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+    {% endblock typed %}
 </body>
 
 </html>
