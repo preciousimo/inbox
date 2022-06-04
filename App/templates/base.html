@@ -28,6 +28,7 @@
     <div class="wrapper">
 
         <!-- Background image -->
+        {% block image %}
         <style>
             body{
                 background-image: url("/static/img/home.jpg/");
@@ -37,6 +38,8 @@
                 background-size: cover;
             }
         </style>
+        {% endblock image %}
+
         <!-- Navbar -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
