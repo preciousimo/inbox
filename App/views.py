@@ -7,7 +7,7 @@ from django.views.decorators.cache import cache_control
 # Fuction to home page (Frontend)
 def home(request):
     return render(request, "home.html")
-
+    
 # Fuction to inbox (Backend)
 @login_required(login_url="login")
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
