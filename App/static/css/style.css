@@ -90,3 +90,43 @@ html, body {
 .form-switch .form-check-input:focus {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='grey'/%3e%3c/svg%3e");
 }
+
+/* CUSTOM SWEETALERT */
+/* All text centered */
+.swal-text {
+    text-align: center;
+}
+/* Icon settings */
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success:before,
+.swal-icon--success__hide-corners {
+    background: none !important;
+}
+.swal-icon--success {
+    /* Color of ring */
+    border-color: #198754;
+}
+.swal-icon--success__line {
+    /* Animation */
+    background-color: #198754;
+}
+/* Button settings */
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 5px;
+    background-color: #111;
+    font-size: 12px;
+    border: 1px solid #111;
+}
+.swal-button:focus {
+    /* Remove the silver border */
+    box-shadow: none;
+}
+.swal-button:not([disabled]):hover {
+    /* Hover effect */
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+}
+
