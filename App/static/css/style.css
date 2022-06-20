@@ -68,3 +68,11 @@ html, body {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+/* BOOTSTRAP (FORM GREEN THEME) */
+/* Replace blue focus on inputs and buttons to green */
+.form-control:focus {
+    border-color: green;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
