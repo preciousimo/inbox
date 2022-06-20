@@ -23,6 +23,23 @@ html, body {
     cursor: pointer;
 }
 
+/* LOGIN */
+#card-login {
+    width: 450px;
+}
+.login {
+    border-top: .4rem solid #198754;
+    border-bottom: .4rem solid #198754;
+    border-radius: 10px;
+}
+#btn-enter {
+    border-radius: 15px;
+    font-size: 16px;
+}
+#login-watermark {
+    color: #d3d3d3;
+    font-size: 150px;
+}
 /* MESSAGE (PULSE) */
 .pulse {
     width: 65px;
