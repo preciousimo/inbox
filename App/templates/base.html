@@ -96,6 +96,14 @@
         </div>
     </footer>
 
+    <!-- Message from backend (login page) -->
+    {% if form.errors %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        swal("Denied !", "Enter your data correctly", "info")
+    </script>
+    {% endif %}
+
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
