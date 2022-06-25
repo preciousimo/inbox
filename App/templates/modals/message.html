@@ -1,0 +1,57 @@
+{% extends 'modals/baseModal.html' %}
+
+<!-- Modal Id -->
+{% block modal-id %} id="messageModal" {% endblock modal-id %}
+
+<!-- Class Modal-XL -->
+{% block modal-width %}modal-xl{% endblock modal-width %}
+
+<!-- Modal Title -->
+{% block modal-title %}
+<i class="fas fa-envelope"></i>  Message
+{% endblock modal-title %}
+
+<!-- Form -->
+{% block form %}
+<form method="POST" action="#" autocomplete="off" class="was-validated" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="modal-body">
+        <div class="mb-1">
+            <input type="text" class="form-control" name="name" maxlength="40" placeholder="Name" required>
+        </div>
+        <div class="mb-1">
+            <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+        </div>
+        <div class="mb-1">
+            <input type="email" class="form-control" name="email" maxlength="40" placeholder="Email" required>
+        </div>
+        <div class="mb-1">
+            <input type="text" class="form-control" name="subject" maxlength="25" placeholder="Subject" required>
+        </div>
+        <hr>
+        <div class="form-group mb-2">
+            <textarea class="form-control" name="message" id="message" rows="10" maxlength="1000" required></textarea>
+        </div>
+        <!-- Character remaining counter -->
+        <span id="remaining"></span>
+        <hr>
+        <div class="form-control mb-3">
+            <input class="form-control" type="file" name="file" id="file">
+        </div>
+        <h6 class="text-danger" id="note">Note: for more than one file use:
+            <strong class="text-success">rar</strong> or <strong class="text-success">zip</strong>.
+        </h6>
+        <hr>
+        <div class="d-grid gap-2 mt-3">
+            <button class="btn text-light" type="submit" style="background-color: #2e856e;">Send message  
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Input Hidden -->
+    <input type="hidden" value="Pending" name="status">
+</form>
+{% endblock form %}
+
+<!-- Modal Footer denied here-->
+{% block close %}{% endblock close %}
