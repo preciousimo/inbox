@@ -3,11 +3,6 @@
 <!-- Block image denied here -->
 {% block image %}{% endblock image %}
 
-<!-- Page content -->
-{% block content %}
-<div class="text-danger text-center mt-5">BACKEND</div>
-{% endblock content %}
-
 <!-- Sidebar content -->
 {% block sidebar-content %}
 <center>
@@ -17,3 +12,26 @@
 <br>
 <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
 {% endblock sidebar-content %}
+
+<!-- Page content -->
+{% block content %}
+<br>
+<div class="container-fluid mt-3" style="width: 90%;">
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hide">
+        {% include 'dashboard/dashboard.html' %}
+    </div>
+    <br>
+
+    <!-- Global Search -->
+    <form action="" id="global-search" class="hide">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" name="q" class="form-control input-sm" placeholder="Search for..." value="{{ request.GET.q }}">
+            <button class="btn btn-secondary" title="Search"><i class="fas fa-search"></i></button>
+            <a href="{% url 'inbox' %}" class="btn btn-dark" style="margin-left: 2px;" title="Refresh"><i class="fas fa-sync-alt"></i></a>
+        </div>
+    </form>
+
+</div>
+{% endblock content %}
