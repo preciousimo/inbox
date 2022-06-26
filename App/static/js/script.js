@@ -15,3 +15,29 @@ function myFunction() {
         p.type = "password"
     }
 }
+
+// Character remaining counter
+$(document).ready(function() {
+    var start = 0;
+    var limit = 1000;
+
+    $('#message').keyup(function() {
+        start = this.value.length
+        if (start > limit) {
+            return false;
+        }
+        else if (start == 1000) {
+            $("#remaining").html("Characters remaining: " + (limit - start)).css('color', 'red');
+            swal("Oops!!", "Characters limit exceeded !", "info");
+        }
+        else if (start > 984) {
+            $("#remaining").html("Characters remaining: " + (limit - start)).css('color', 'red');
+        }
+        else if (start < 1000) {
+            $("#remaining").html("Characters remaining: " + (limit - start)).css('color', 'black');
+        }
+        else {
+            $("#remaining").html("Characters remaining: " + (limit)).css('color', 'black');
+        }
+    })
+});
