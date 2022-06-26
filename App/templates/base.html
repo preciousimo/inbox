@@ -30,7 +30,7 @@
         <!-- Background image -->
         {% block image %}
         <style>
-            body{
+            body {
                 background-image: url("/static/img/home.jpg/");
                 background-position: 0px;
                 background-repeat: no-repeat;
@@ -56,10 +56,10 @@
 
                 <!-- Humburguer -->
                 <div class="col-sm">
-                    <a class="navbar-brand flex-grow-1" id="btn-nav" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">
-                    <i class="fas fa-bars"></i>
-                </a>
+                    <a class="navbar-brand flex-grow-1" id="btn-nav" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <i class="fas fa-bars"></i>
+                    </a>
                 </div>
             </nav>
         </header>
@@ -101,11 +101,22 @@
 
     <!-- Message from backend (login page) -->
     {% if form.errors %}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        swal("Denied !", "Enter your data correctly", "info")
-    </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            swal("Denied !", "Enter your data correctly", "info")
+        </script>
     {% endif %}
+
+    <!-- Message from backend (Success to all the project) -->
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                var m = "{{ message }}"
+                swal("Perfect !", m, "success")
+            </script>
+        {% endif %}
+    {% endfor %}
 
 
     <!-- Bootstrap 5 JS -->
