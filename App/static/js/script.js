@@ -50,3 +50,14 @@ $(document).ready(function() {
         return false; 
     }})
 })
+
+// Script to accept until 2mb 'upload file'
+$(document).ready(function() {
+    var upload = document.getElementById('file');
+    upload.onchange = function() {
+        if(this.files[0].size > 2 * 1048576) {
+            swal("Attention !", "Maximum allowed size is 2mb.", "info");
+            this.value = "";
+        };
+    };
+});
