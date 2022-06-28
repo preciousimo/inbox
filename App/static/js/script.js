@@ -41,3 +41,12 @@ $(document).ready(function() {
         }
     })
 });
+
+// Inputmask (PHONE)
+$(document).ready(function() {
+    $(".phone").inputmask("(999) 999-999-9999", {"onincomplete": function() {
+        swal("Opss !", "Incomplete phone. Please review !", "Info");
+        $(".phone").val("");
+        return false; 
+    }})
+})
