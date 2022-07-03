@@ -51,6 +51,28 @@
                     </tr>
                 </thead>
                 <!-- Data from backend -->
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.subject }}</td>
+                    <td>{{ customer.created_at | date:'m/d/y (H:i' }}</td>
+
+                    <td>{{ customer.status }}</td>
+
+                    <td>
+                        <button class="btn btn-secondary btn-sm btn-action" title="Delete message">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn text-light btn-sm btn-action" title="Read message" style="background-color: #2e856e;">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>

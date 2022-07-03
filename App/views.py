@@ -7,6 +7,7 @@ from django.contrib import messages # Message from backend
 from django.http import HttpResponseRedirect # Redirect  page
 from django.db.models import Q # Global search
 from django.core.paginator import Paginator # Pagination
+from datetime import datetime # Used to get total message per day (In this case)
 
 # FRONTEND
 # Fuction to home page (Frontend)
@@ -40,6 +41,19 @@ def inbox(request):
     else:
         all_customer_list = Customer.objects.all().order_by('-created_at')
 
-    paginator = Paginator(all_customer_list, 3)
+    paginator = Paginator(all_customer_list, 5)
     page = request.GET.get('page')
-    return render(request, "inbox.html")
+    all_customer = paginator.get_page(page)
+
+    # Total
+    total = Customer.objects.all().count()
+    # Read
+    read = Customer.objects.filter(status='Read')
+    # Unread
+    pending = Customer.objects.filter(status='Pending')
+    # Today
+    base = datetime.now().date()
+    today = Customer.objects.filter(created_at__gt = base)
+
+    return render(request, "inbox.html", {'customers':all_customer,
+    "total":total, "read":read, "pending":pending, "today":today})
