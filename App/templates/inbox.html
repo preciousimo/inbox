@@ -75,8 +75,37 @@
                 {% endfor %}
             </table>
         </div>
+        <br>
     </div>
-</div>
+
+    <!-- PAGINATION -->
+    <nav>
+        {% if customers.has_other_pages %}
+        <ul class="pagination">
+            {% if customers.has_previous %}
+            <a href="?pages=1" class="btn btn-outline-secondary mb-4" style="border-radius: 1px; border: 1px solid #d3d3d3">First</a>
+            <li class="page-item"><a class="page-link" href="?page={{ customer.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"></li>
+            {% endif %}
+
+            {% for i in customers.paginator.page_range %}
+            {% if customers.number == i %}
+            <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only"></span></span></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if customers.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ customer.next_page_number }}"><i class="fas fa-angle-double-right"></i></a></li>
+            <a href="?pages={{ customers.paginator.num_pages }}" class="btn btn-outline-secondary mb-4" style="border-radius: 1px; border: 1px solid #d3d3d3; border-left: none;">Last</a>
+            {% else %}
+            <li class="page-item disabled"></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </nav>
 
 </div>
 {% endblock content %}
