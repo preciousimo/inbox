@@ -1,5 +1,5 @@
 {% extends 'dashboard/baseDash.html' %}
 
 {% block icon %}<i class="fas fa-envelope-open fa-4x"></i>{% endblock icon %}
-{% block value %}0{% endblock value %}
+{% block value %} {{ read.count }} {% endblock value %}
 {% block dash-title %}READ{% endblock dash-title %}
