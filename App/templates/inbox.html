@@ -62,7 +62,7 @@
                     <td>{{ customer.status }}</td>
 
                     <td>
-                        <button class="btn btn-secondary btn-sm btn-action" title="Delete message">
+                        <button class="btn btn-secondary btn-sm btn-action" title="Delete message" data-bs-toggle="modal" data-bs-target="#deleteModal{{ customer.pk }}">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </td>
@@ -72,6 +72,9 @@
                         </button>
                     </td>
                 </tr>
+
+                <!-- MODAL DELETE CONFIRMATION -->
+                {% include 'modals/delete.html' %}
                 {% endfor %}
             </table>
         </div>

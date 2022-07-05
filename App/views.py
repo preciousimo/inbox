@@ -57,3 +57,12 @@ def inbox(request):
 
     return render(request, "inbox.html", {'customers':all_customer,
     "total":total, "read":read, "pending":pending, "today":today})
+
+# Function to delete the messages
+@login_required(login_url="login")
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def delete_message(request, customer_id):
+    customer = Customer.objects.get(id = customer_id)
+    customer.delete()
+    messages.success(request, "Message successfully deleted !")
+    return HttpResponseRedirect('/inbox')

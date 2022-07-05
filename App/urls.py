@@ -11,4 +11,6 @@ urlpatterns = [
     # BACKEND
     # Path to inbox page (backend)
     path('inbox/', views.inbox, name="inbox"),
+    # Path to delete the message
+    path('delete_message/<str:customer_id>', views.delete_message, name="delete_message"),
 ]
