@@ -10,7 +10,7 @@
     Welcome: <span class="text-success">{{user.get_username}}</span>
 </center>
 <br>
-<a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+<a class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
 {% endblock sidebar-content %}
 
 <!-- Page content -->
