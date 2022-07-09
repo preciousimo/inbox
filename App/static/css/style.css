@@ -47,6 +47,27 @@ html, body {
 .btn-action {
     width: 45px;
 }
+/* IF NO MESSAGE FOUND */
+#msg {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+}
+#refresh {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    color: #111;
+}
+#refresh:hover {
+    color: #198754;
+}
 /* MESSAGE (PULSE) */
 .pulse {
     width: 65px;

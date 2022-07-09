@@ -52,7 +52,7 @@
                 </thead>
                 <!-- Data from backend -->
                 {% for customer in customers %}
-                <tr>
+                <tr id="chk_td">
                     <td>{{ customer.name }}</td>
                     <td>{{ customer.phone }}</td>
                     <td>{{ customer.email }}</td>
@@ -113,4 +113,10 @@
     </nav>
 
 </div>
+
+<!-- If no message, show this content -->
+<span class="text-danger" id="msg"></span>
+<!-- Button to refresh the page -->
+<a href="{% url 'inbox' %}" id="refresh"></a>
+<br><br><br>
 {% endblock content %}

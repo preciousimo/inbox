@@ -69,3 +69,13 @@ $(document).ready(function() {
         jQuery('.offcanvas').offcanvas('hide');
     });
 });
+
+// If no message, hide all content
+$(document).ready(function() {
+    var verify = $('#chk_td').length;
+    if (verify == 0) {
+        $(".hidee").css('display', 'none');
+        $('#msg').text("No message found!");
+        $('#refresh').html('<i class="fas fa-sync-alt fa-3x">')
+    }
+});
