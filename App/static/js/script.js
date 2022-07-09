@@ -61,3 +61,11 @@ $(document).ready(function() {
         };
     };
 });
+
+// Script to close the offcanvas when the button id clicked
+$(document).ready(function() {
+    jQuery("#offcanvasRight, .offcanvas-body a").click(function() {
+        console.log($(this).attr('href'));
+        jQuery('.offcanvas').offcanvas('hide');
+    });
+});
