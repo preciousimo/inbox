@@ -40,6 +40,13 @@ html, body {
     color: #d3d3d3;
     font-size: 150px;
 }
+/* OTHER PARTS (MIXED PARTS) */
+.btn-modal {
+    width: 70px;
+}
+.btn-action {
+    width: 45px;
+}
 /* MESSAGE (PULSE) */
 .pulse {
     width: 65px;

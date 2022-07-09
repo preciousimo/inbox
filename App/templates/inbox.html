@@ -57,10 +57,12 @@
                     <td>{{ customer.phone }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.subject }}</td>
-                    <td>{{ customer.created_at | date:'m/d/y (H:i' }}</td>
-
+                    <td>{{ customer.created_at | date:'m/d/y (H:i)' }}</td>
+                    {% if customer.status == 'Pending' %}
+                    <td class="text-danger">{{ customer.status }}</td>
+                    {% else %}
                     <td>{{ customer.status }}</td>
-
+                    {% endif %}
                     <td>
                         <button class="btn btn-secondary btn-sm btn-action" title="Delete message" data-bs-toggle="modal" data-bs-target="#deleteModal{{ customer.pk }}">
                             <i class="fas fa-trash-alt"></i>
