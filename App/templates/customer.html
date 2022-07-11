@@ -70,10 +70,21 @@
                 </div>
 
                 <!-- Mark the message as read (section) -->
-            </form>
+                {% include 'modals/mark.html' %}
 
-            <a href="{% url 'inbox' %}" id="btn-back" class="btn btn-dark" title="Back">
+            </form>
+            <br class="hide-br"><hr>
+
+            {% if customer.status == 'Pending' %}
+            <a id="btn-back" class="btn btn-dark" title="Back" data-bs-toggle="modal" data-bs-target="#markModal"></a>
+            {% else %}
+            <a href="{% url 'inbox' %}" id="btn-back" class="btn btn-dark" title="Back"></a>
+            {% endif %}
                 <i class="fas fa-arrow-left"></i>
+            </a>
+
+            <a class="btn text-light" id="reply" title="Reply email" data-bs-toggle="modal" data-bs-target="#replyModal">
+                <i class="fas fa-reply"></i>  <span>Reply</span>
             </a>
 
         </div>

@@ -62,6 +62,13 @@ html, body {
 #input-bg {
     background-color: #fff;
 }
+#reply {
+    width: 110px;
+    float: left;
+    margin-left: 5px;
+    background-color: #2e856e;
+    border-radius: 0px;
+}
 /* IF NO MESSAGE FOUND */
 #msg {
     position: absolute;
