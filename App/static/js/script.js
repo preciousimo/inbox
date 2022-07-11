@@ -89,3 +89,17 @@ setInterval(function() {
         (date.getSeconds() < 10 ? '0' : '') + date.getSeconds()
     );
 }, 500);
+
+// Script to update the page always at (0:00)
+function autoRefresh(h, m, s) {
+    var now = new Date(), then = new Date();
+    then.setHours(h,m,s,0);
+    if (then.getTime() < now.getTime()) {
+        then.setDate(now.getDate() + 1);
+    }
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function() {
+        window.location.reload(true);
+    }, timeout);
+}
+autoRefresh(0,0,0)
