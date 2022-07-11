@@ -79,3 +79,13 @@ $(document).ready(function() {
         $('#refresh').html('<i class="fas fa-sync-alt fa-3x">')
     }
 });
+
+// Script to get TIME running at real time
+setInterval(function() {
+    var date = new Date();
+    $('#clock, #mini-clock').html(
+        (date.getHours() < 10 ? '0' : '') + date.getHours() + ":" +
+        (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" +
+        (date.getSeconds() < 10 ? '0' : '') + date.getSeconds()
+    );
+}, 500);

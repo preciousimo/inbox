@@ -47,6 +47,9 @@ html, body {
 .btn-action {
     width: 45px;
 }
+#resp-datetime, #mini-dashboard {
+    display: none;
+}
 /* IF NO MESSAGE FOUND */
 #msg {
     position: absolute;

@@ -3,14 +3,33 @@
 <!-- Block image denied here -->
 {% block image %}{% endblock image %}
 
+<!-- DateTime (desktop mode) -->
+{% block datetime %}
+<div class="text-light" id="desk-datetime" style="font-size: 12px; margin-top: 5px;">{% now "l (m/d/Y )" %} :
+    <span style="color: #8abaae; font-weight: bold;" id="clock"></span>
+</div>
+{% endblock datetime %}
+
 <!-- Sidebar content -->
 {% block sidebar-content %}
 <center>
     <!-- Welcome user -->
     Welcome: <span class="text-success">{{user.get_username}}</span>
+
+    <!-- DateTime (responsive mode) -->
+    <div id="resp-datetime">{% now "l (m/d/Y)" %}
+        <span id="mini-clock"></span>
+        <br>
+    </div>
+    <!-- Dashboard (responsive mode) -->
+    <div id="mini-dashboard">
+        {% include 'dashboard/dashboard.html' %}
+    </div> 
 </center>
-<br>
+<hr>
+<!-- Buttons -->
 <a class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+<a href="{% url 'admin:index' %}" target="_blank" class="btn btn-outline-success btn-sm">Admin</a>
 {% endblock sidebar-content %}
 
 <!-- Page content -->
