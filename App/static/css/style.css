@@ -50,6 +50,18 @@ html, body {
 #resp-datetime, #mini-dashboard {
     display: none;
 }
+#btn-back {
+    float: left;
+    width: 45px;
+    border-radius: 0px;
+}
+.side-label {
+    width: 45px;
+    font-size: 15px;
+}
+#input-bg {
+    background-color: #fff;
+}
 /* IF NO MESSAGE FOUND */
 #msg {
     position: absolute;

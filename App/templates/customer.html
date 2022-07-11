@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+<!-- Block Typed JS denied here -->
+{% block typed %}{% endblock typed %}
+
+<!-- Block navbar content -->
+{% block nav-content %}
+<i class="fas fa-user-alt"></i>  <span style="font-size: 16px;">{{ customer.name }}</span>
+{% endblock nav-content %}
+
+<!-- Sidebar content -->
+{% block sidebar-content %}
+<center>
+    <!-- Welcome user -->
+    Welcome: <span class="text-success">{{user.get_username}}</span>
+    <br>
+    <!-- DateTime (responsive mode) -->
+    <div id="resp-datetime">{% now "l (m/d/Y)" %}
+        <span id="mini-clock"></span>
+        <br>
+    </div>
+</center>
+<hr>
+<!-- Buttons -->
+<a class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+<a href="{% url 'admin:index' %}" target="_blank" class="btn btn-outline-success btn-sm">Admin</a>
+{% endblock sidebar-content %}
+
+<!-- Page content -->
+{% block content %}
+<div class="container">
+    <div class="card text-center mt-3">
+        <div class="card-header">
+            Received on: {{ customer.created_at | date:'m/d/Y' }} at {{ customer.created_at | date:'(H:i)' }}
+        </div>
+        <div class="card-body">
+            <form method="POST" action="#" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Input ID hidden -->
+                <input type="hidden" value="{{ customer.id }}" name="id">
+
+                <div class="input-group mb-2">
+                    <span class="input-group-text justify-content-center side-label"><i class="fas fa-phone-alt"></i></span>
+                    <input type="text" id="input-bg" class="form-control" value="{{ customer.phone }}" readonly>
+                </div>
+
+                <div class="input-group mb-2">
+                    <span class="input-group-text justify-content-center side-label"><i class="fas fa-envelope"></i></span>
+                    <input type="text" id="input-bg" class="form-control" value="{{ customer.email }}" readonly>
+                </div>
+
+                <div class="input-group mb-2">
+                    <span class="input-group-text justify-content-center side-label"><i class="fas fa-user-edit"></i></span>
+                    <input type="text" id="input-bg" class="form-control" value="{{ customer.subject }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control" id="input-bg" rows="10" readonly>{{ customer.message }}</textarea>
+                </div>
+
+                <div class="input-group mb-3 mt-3">
+                    <a href="/media/{{ customer.file }}" target="_blank" style="text-decoration: none;" class="bg-dark text-light input-group-text justify-content-center side-label">
+                        <i class="fas fa-paperclip"></i>
+                    </a>
+                    {% if customer.file == '' %}
+                    <input type="text" class="form-control" id="input-bg" value="No attachment" readonly>
+                    {% else %}
+                    <input type="text" class="form-control" id="input-bg" value="{{ customer.file }}" readonly>
+                    {% endif %}
+                </div>
+
+                <!-- Mark the message as read (section) -->
+            </form>
+
+            <a href="{% url 'inbox' %}" id="btn-back" class="btn btn-dark" title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -13,4 +13,6 @@ urlpatterns = [
     path('inbox/', views.inbox, name="inbox"),
     # Path to delete the message
     path('delete_message/<str:customer_id>', views.delete_message, name="delete_message"),
+    # Path to view the message individually
+    path('customer/<str:customer_id>', views.customer, name="customer"),
 ]
