@@ -15,4 +15,7 @@ urlpatterns = [
     path('delete_message/<str:customer_id>', views.delete_message, name="delete_message"),
     # Path to view the message individually
     path('customer/<str:customer_id>', views.customer, name="customer"),
+    # Path to mark the message as read
+    path('mark_message/', views.mark_message, name="mark_message"),
+
 ]

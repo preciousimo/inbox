@@ -34,7 +34,7 @@
             Received on: {{ customer.created_at | date:'m/d/Y' }} at {{ customer.created_at | date:'(H:i)' }}
         </div>
         <div class="card-body">
-            <form method="POST" action="#" enctype="multipart/form-data">
+            <form method="POST" action="/mark_message/" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!-- Input ID hidden -->
                 <input type="hidden" value="{{ customer.id }}" name="id">
@@ -69,6 +69,11 @@
                     {% endif %}
                 </div>
 
+                <!-- This value goes back to backend (DB) -->
+                {% if customer.status == 'Pending' %}
+                <input type="hidden" class="form-control" name="status" value="Read">
+                {% endif %}
+
                 <!-- Mark the message as read (section) -->
                 {% include 'modals/mark.html' %}
 
@@ -76,16 +81,18 @@
             <br class="hide-br"><hr>
 
             {% if customer.status == 'Pending' %}
-            <a id="btn-back" class="btn btn-dark" title="Back" data-bs-toggle="modal" data-bs-target="#markModal"></a>
-            {% else %}
-            <a href="{% url 'inbox' %}" id="btn-back" class="btn btn-dark" title="Back"></a>
-            {% endif %}
+            <a id="btn-back" class="btn btn-dark" title="Back" data-bs-toggle="modal" data-bs-target="#markModal">
                 <i class="fas fa-arrow-left"></i>
             </a>
-
+            {% else %}
+            <a href="{% url 'inbox' %}" id="btn-back" class="btn btn-dark" title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            {% endif %} 
             <a class="btn text-light" id="reply" title="Reply email" data-bs-toggle="modal" data-bs-target="#replyModal">
                 <i class="fas fa-reply"></i>  <span>Reply</span>
             </a>
+
 
         </div>
     </div>

@@ -74,3 +74,15 @@ def customer(request, customer_id):
     customer = Customer.objects.get(id = customer_id)
     if customer != None:
         return render(request, "customer.html", {"customer":customer})
+
+# Function to mark the message as read
+@login_required(login_url="login")
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def mark_message(request):
+    if request.method == "POST":
+        customer = Customer.objects.get(id = request.POST.get('id'))
+        if customer != None:
+            customer.status = request.POST.get('status')
+            customer.save()
+            messages.success(request, "Message marked as READ !")
+            return HttpResponseRedirect('/inbox')
