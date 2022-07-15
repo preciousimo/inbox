@@ -93,8 +93,22 @@
                 <i class="fas fa-reply"></i>  <span>Reply</span>
             </a>
 
-
         </div>
     </div>
 </div>
+
+<!-- Spinner Ajax (backend) -->
+<div id="bg-spinner">
+    <div id="position-spinner">
+        <span id="spinner"></span>
+    </div>
+</div>
+
+<!-- Prevent back of browser (only in this page) -->
+<script>
+    history.pushState(null, null, null);
+    window.addEventListener('popstate', function() {
+        history.pushState(null, null, null);
+    });
+</script>
 {% endblock content %}

@@ -17,5 +17,6 @@ urlpatterns = [
     path('customer/<str:customer_id>', views.customer, name="customer"),
     # Path to mark the message as read
     path('mark_message/', views.mark_message, name="mark_message"),
-
+    # Path to reply email
+    path('email/', views.email, name="email"),
 ]

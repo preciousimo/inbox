@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from decouple import config, Csv
+from dotenv import load_dotenv
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -135,7 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 JET_THEMES = [
     {
         'theme': 'default', # theme folder name
-        'color': '#47bac1', # color of the theme's button in user menu
+        'color': 'blue', # color of the theme's button in user menu
         'title': 'Default' # theme title
     },
     {
@@ -166,3 +170,12 @@ JET_THEMES = [
 ]
 
 # JET_SIDE_MENU_COMPACT = True
+
+# EMAIL - SMTP SERVER (from google gmail)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')

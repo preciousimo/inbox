@@ -200,4 +200,32 @@ html, body {
     box-shadow: none;
 }
 
+/* BACK SPINNER (AJAX) */
+#bg-spinner {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: none;
+    background: rgb(1, 1, 1, 0.7);
+}
+#position-spinner {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#spinner {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 6px #d3d3d3 solid;
+    border-top: 6px #198754 solid;
+    animation: loading 1s infinite linear;
+}
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
+    }
+}
 

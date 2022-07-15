@@ -155,6 +155,38 @@
         });
     </script>
     {% endblock typed %}
-</body>
 
+    <!-- Ajax Backend Spinner -->
+    <script>
+        jQuery(function($) {
+            $(document).ajaxSend(function() {
+                $("#bg-spinner").fadeIn(500);
+            });
+
+            $(".send-email").click(function() {
+                $.ajax({
+                    type: 'GET',
+                    success: function(data) {
+                        var d = $.parseJSON(data);
+                        alert(d.test);
+                    }
+                }).done(function() {
+                    setTimeout(function() {
+                        $("#bg-spinner").fadeOut(500);
+                    }, 700);
+                });
+            });
+        });
+        // Close modal (after 'send button is clicked')
+        $(".send-email").click(function() {
+            var msg = $("email-msg").val();
+            var subject = $("#email-subject").val();
+
+            if ((msg != '') && (subject != '')) {
+                $('.close-modal').modal('hide')
+            }
+        })
+    </script>
+
+</body>
 </html>

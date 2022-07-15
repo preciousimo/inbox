@@ -1,5 +1,8 @@
 {% extends 'modals/baseModal.html' %}
 
+<!-- CLose modal backend spinner -->
+{% block close-modal %}close-modal{% endblock close-modal %}
+
 <!-- Modal Id -->
 {% block modal-id %} id="replyModal" {% endblock modal-id %}
 
@@ -10,7 +13,7 @@
 
 <!-- FORM -->
 {% block form %}
-<form method="POST" action="/email" class="was-validated" enctype="multipart/form-data">
+<form method="POST" action="/email/" class="was-validated" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="modal-body">
         <div class="">
@@ -25,12 +28,12 @@
             <input class="form-control" type="email" name="cc" placeholder="CC (optional)">
         </div>
         <div class="mb-3">
-            <textarea class="form-control txt-sm" style="height: 250px;" name="message"
+            <textarea id="email-msg" class="form-control txt-sm" style="height: 250px;" name="message"
                 placeholder="Put here your message..." required></textarea>
             <div class="invalid-feedback">Required</div>
         </div>
         <div class="mb-3">
-            <select class="form-select" name="subject" required>
+            <select class="form-select" id="email-subject" name="subject" required>
                 <option value="">Select a subject</option>
                 <option disabled></option>
                 <option value="Reply">Reply:</option>

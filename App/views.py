@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required  # Login required to private pages
-from django.views.decorators.cache import cache_control # Destroy the section after logout
-from .forms import Customerform # From forms.py
+from django.views.decorators.cache import cache_control # Destroy the section after logout 
+from .forms import Customerform, EmailForm # From forms.py
 from .models import Customer # From models.py
 from django.contrib import messages # Message from backend
 from django.http import HttpResponseRedirect # Redirect  page
 from django.db.models import Q # Global search
 from django.core.paginator import Paginator # Pagination
 from datetime import datetime # Used to get total message per day (In this case)
+from django.core.mail import EmailMessage # Send emails
 
 # FRONTEND
 # Fuction to home page (Frontend)
@@ -86,3 +87,29 @@ def mark_message(request):
             customer.save()
             messages.success(request, "Message marked as READ !")
             return HttpResponseRedirect('/inbox')
+
+# Function to reply email
+def email(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST, request.FILES)
+
+        company = "Reply Anxtraoil"
+
+        if form.is_valid():
+            subject = form.cleaned_data["subject"]
+            message = form.cleaned_data["message"]
+            email = form.cleaned_data["email"]
+            cc = form.cleaned_data["cc"]
+            files = request.FILES.getlist("attach")
+            
+            mail = EmailMessage(subject, message, company, [email], [cc])
+            for f in files:
+                mail.attach(f.name, f.read(), f.content_type)
+            mail.send()
+            
+            messages.success(request, "Reply send successfully !")
+            return HttpResponseRedirect('/inbox')
+
+        else:
+            form = EmailForm()
+            return render(request, {'form':form})
