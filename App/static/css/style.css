@@ -69,6 +69,37 @@ html, body {
     background-color: #2e856e;
     border-radius: 0px;
 }
+/* Note in warning "Modal logout in 5 minutes" */
+.note-warning {
+    font-size: 12px;
+}
+/* Buttons '+30 min' and 'Ok' */
+#btn-30m, #btn-ok-logout {
+    width: 70px;
+}
+/* Note info modal (after auto logout) */
+.note-info {
+    font-size: 13px;
+}
+/* ERROR SECTION ( 404 and 500) */
+/* Error position */
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+/* Error text levels */
+.error-txt1 {
+    font-size: 18px;
+}
+.error-txt2 {
+    font-size: 20px;
+}
+.error-404 {
+    font-size: 120px;
+}
 /* IF NO MESSAGE FOUND */
 #msg {
     position: absolute;

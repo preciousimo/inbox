@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<!-- Title on tab -->
+{% block title %} error 500 {% endblock title %}
+
+<!-- Background image denied here -->
+{% block image %}{% endblock image %}
+
+<!-- Block Typed denied here -->
+{% block typed %}{% endblock typed %}
+
+<!-- Block sidebar content -->
+{% block sidebar-content %}
+<a href="{% url 'inbox' %}" class="btn btn-secondary">Back</a>
+{% endblock sidebar-content %}
+
+<!-- Page content -->
+{% block content %}
+<div class="modal-body text-center error">
+    <div class="text-center text-danger error-body">
+        {% block error-body %}
+        <span class="fa-stack fa-8x">
+            <i class="fas fa-ban fa-stack-2x"></i>
+            <i class="fas fa-envelope fa-stack-1x fa-inverse text-dark"></i>
+        </span>
+        {% endblock error-body %}
+    </div>
+    <h6 class="text-danger mt-4 error-txt2">{% block reason %} This message no longer exists ! {% endblock reason %}</h6>
+    <div class="mt-3 error-txt1">
+        <span style="font-weight: bold;">{% block note %} Note:</span> This message was probably deleted from the inbox. {% endblock note %}
+    </div>
+</div>
+{% endblock content %}

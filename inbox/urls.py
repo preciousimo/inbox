@@ -18,3 +18,6 @@ urlpatterns = [
     path('jet/dashboard', include('jet.dashboard.urls', 'jet-dashboard')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler500 = 'App.views.error_500'
+handler404 = 'App.views.error_404'

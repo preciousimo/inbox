@@ -1,0 +1,26 @@
+{% extends '500.html' %}
+
+<!-- Title on tab -->
+{% block title %} error 404 {% endblock title %}
+
+<!-- Block sidebar content -->
+{% block sidebar-content %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'inbox' %}" class="btn btn-secondary">Back</a>
+    {% else %}
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    {% endif %}
+{% endblock sidebar-content %}
+
+<!-- Page content -->
+{% block error-body %}
+<span class="text-danger mb-5 error-404">404</span>
+<h5 class="text-danger mb-3">THE PAGE YOU ENTERED DOES NOT EXISTS</h5>
+<h5 class="text-dark" style="line-height: 1.5em;">If you are sure this is a system error, we kindly ask you to notify our 
+    <a href="#" class="text-danger">Technical support</a>
+</h5>
+{% endblock error-body %}
+
+<!-- Block denied here -->
+{% block reason %}{% endblock reason %}
+{% block note %}{% endblock note %}

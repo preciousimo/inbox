@@ -1,0 +1,35 @@
+{% extends 'modals/baseModal.html' %}
+
+<!-- Modal Id -->
+{% block modal-id %} id="warningModal" {% endblock modal-id %}
+
+<!-- Modal Title -->
+{% block modal-title %}
+<i class="fas fa-exclamation-triangle"></i> Attention !
+{% endblock modal-title %}
+
+<!-- Modal Body -->
+{% block modal-body %} 
+<div class="text-center text-secondary" id="stack">
+    <span class="fa-stack fa-3x">
+        <i class="fas fa-cloud fa-stack-2x"></i>
+        <i class="fas fa-exclamation-triangle fa-stack-1x fa-inverse"></i>
+    </span>
+</div>
+<div class="mt-3">
+    <span>The system will log out in 5 minutes...</span>
+    <div class="container note-warning mt-3">Note: If you want to stay logged in for more than 30 minutes, just click on the
+        <br class="hide-br">
+        <span class="text-success"><strong> +30 min</strong></span> button below.
+    </div>
+</div>
+{% endblock modal-body %}
+
+<!-- Modal Footer -->
+{% block modal-footer %}
+<a onClick="window.location.reload();" class="btn btn-secondary btn-sm" id="btn-30m">+30 min</a>
+<button id="btn-ok-logout" type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal">Ok</button>
+{% endblock modal-footer %}
+
+<!-- Modal Footer denied here-->
+{% block close %}{% endblock close %}
