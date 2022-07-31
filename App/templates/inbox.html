@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 
+<!-- Title on browser -->
+{% block title %}Inbox{% endblock title %}
+
 <!-- Block image denied here -->
 {% block image %}{% endblock image %}
+
+<!-- Block Typed JS denied here -->
+{% block typed %}{% endblock typed %}
+
+<!-- Block navbar content -->
+{% block nav-content %}
+<i class="fas fa-envelope" style="color: #8abaae;"></i>&nbsp; &nbsp;Inbox
+{% endblock nav-content %}
 
 <!-- DateTime (desktop mode) -->
 {% block datetime %}

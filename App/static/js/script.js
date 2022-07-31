@@ -110,7 +110,7 @@ setTimeout(function() {
     if(notice) {
         notice.click();
     }
-}, 1 * 10000)
+}, 25 * 60000) // 25 Minutes
 
 // 
 setTimeout(function() {
@@ -118,4 +118,4 @@ setTimeout(function() {
     if(action) {
         action.click();
     }
-}, 1 * 15000)
+}, 30 * 60000) // 30 Minutes
