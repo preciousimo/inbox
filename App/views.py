@@ -9,6 +9,7 @@ from django.db.models import Q # Global search
 from django.core.paginator import Paginator # Pagination
 from datetime import datetime # Used to get total message per day (In this case)
 from django.core.mail import EmailMessage # Send emails
+from django.contrib.auth import logout # Used to get auto logout
 
 # FRONTEND
 # Fuction to home page (Frontend)
@@ -113,6 +114,13 @@ def email(request):
         else:
             form = EmailForm()
             return render(request, {'form':form})
+
+# Auto Logout Function
+def AutoLogoutUser(request):
+    logout(request)
+    request.User = None
+    messages.info(request, ".") # Argument cannot be empty (It's because i put a dot)
+    return HttpResponseRedirect('/')
 
 # ERRORS
 # Error 500

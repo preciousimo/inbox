@@ -19,4 +19,6 @@ urlpatterns = [
     path('mark_message/', views.mark_message, name="mark_message"),
     # Path to reply email
     path('email/', views.email, name="email"),
+    # Path to auto logout
+    path('autologout/', views.AutoLogoutUser, name="AutoLogoutUser"),
 ]

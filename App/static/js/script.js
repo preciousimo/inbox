@@ -103,3 +103,19 @@ function autoRefresh(h, m, s) {
     }, timeout);
 }
 autoRefresh(0,0,0)
+
+// Script to advice the users about logout at 5 min (after 25min)
+setTimeout(function() {
+    var notice = document.querySelector('#warning');
+    if(notice) {
+        notice.click();
+    }
+}, 1 * 10000)
+
+// 
+setTimeout(function() {
+    var action = document.querySelector('#info');
+    if(action) {
+        action.click();
+    }
+}, 1 * 15000)
