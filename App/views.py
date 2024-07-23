@@ -11,6 +11,9 @@ from datetime import datetime # Used to get total message per day (In this case)
 from django.core.mail import EmailMessage # Send emails
 from django.contrib.auth import logout # Used to get auto logout
 
+# Define a constant for the inbox URL
+INBOX_URL = '/inbox'
+
 # FRONTEND
 # Fuction to home page (Frontend)
 def home(request):
@@ -67,7 +70,7 @@ def delete_message(request, customer_id):
     customer = Customer.objects.get(id = customer_id)
     customer.delete()
     messages.success(request, "Message successfully deleted !")
-    return HttpResponseRedirect('/inbox')
+    return HttpResponseRedirect(INBOX_URL)  # Use the constant here
 
 # Function to view the message individually
 @login_required(login_url="login")
@@ -87,7 +90,7 @@ def mark_message(request):
             customer.status = request.POST.get('status')
             customer.save()
             messages.success(request, "Message marked as READ !")
-            return HttpResponseRedirect('/inbox')
+            return HttpResponseRedirect(INBOX_URL)  # Use the constant here
 
 # Function to reply email
 def email(request):
