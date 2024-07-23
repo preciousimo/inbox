@@ -131,5 +131,5 @@ def error_500(request):
     return render(request, '500.html')
 
 # Error 404
-def error_404(request, exception):
+def error_404(request): # Removed the unused parameter
     return render(request, '404.html')
