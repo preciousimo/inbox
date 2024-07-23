@@ -119,7 +119,7 @@ def email(request):
             return render(request, {'form':form})
 
 # Auto Logout Function
-def AutoLogoutUser(request):
+def auto_logout_user(request): # Renamed function
     logout(request)
     request.User = None
     messages.info(request, ".") # Argument cannot be empty (It's because i put a dot)
