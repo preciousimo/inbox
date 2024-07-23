@@ -13,7 +13,7 @@
 
 <!-- Sidebar content -->
 {% block sidebar-content %}
-<center>
+<div class="d-flex flex-column align-items-center">
     <!-- Welcome user -->
     Welcome: <span class="text-success">{{user.get_username}}</span>
     <br>
@@ -22,7 +22,7 @@
         <span id="mini-clock"></span>
         <br>
     </div>
-</center>
+</div>
 <hr>
 <!-- Buttons -->
 <a class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
