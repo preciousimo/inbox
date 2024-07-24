@@ -16,16 +16,16 @@ class Customer(models.Model):
     message = models.TextField(max_length=1000)
     file = models.FileField()
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=10, choices=STATUS)
+    # Rename "status" to "message_status" to avoid clash with STATUS
+    message_status = models.CharField(max_length=10, choices=STATUS)
 
     # Control Read/Unread messages on admin.py
     def situation(self):
-        if self.status == 'Read':
-            return format_html('<span style="color: black">{0}</span>', self.status)
+        if self.message_status == 'Read':
+            return format_html('<span style="color: black">{0}</span>', self.message_status)
         else:
-            return format_html('<span style="color: red">{0}</span>', self.status)
+            return format_html('<span style="color: red">{0}</span>', self.message_status)
     situation.allow_tags = True
 
     def __str__(self):
         return self.name
-    
