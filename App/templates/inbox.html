@@ -11,7 +11,7 @@
 
 <!-- Block navbar content -->
 {% block nav-content %}
-<i class="fas fa-envelope" style="color: #8abaae;"></i>&nbsp; &nbsp;Inbox
+<i class="fas fa-envelope" style="color: #8abaae;"></i>   Inbox
 {% endblock nav-content %}
 
 <!-- DateTime (desktop mode) -->
@@ -23,7 +23,6 @@
 
 <!-- Sidebar content -->
 {% block sidebar-content %}
-<center>
     <!-- Welcome user -->
     Welcome: <span class="text-success">{{user.get_username}}</span>
 
@@ -36,7 +35,6 @@
     <div id="mini-dashboard">
         {% include 'dashboard/dashboard.html' %}
     </div> 
-</center>
 <hr>
 <!-- Buttons -->
 <a class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
@@ -68,6 +66,7 @@
     <!-- Table of messages -->
     <div class="col-lg-12 hidee">
         <div style="margin-top: 5px;">
+            <h5 class="text-light">Inbox Messages</h5>
             <table class="table table-sm">
                 <thead class="table-secondary">
                     <tr>
