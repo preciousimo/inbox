@@ -7,58 +7,53 @@ $(document).ready(function() {
 
 // Function to hide/show the password
 function myFunction() {
-    var p = document.getElementById("password");
+    let p = document.getElementById("password");
     if (p.type === "password") {
         p.type = "text";
-    }
-    else {
-        p.type = "password"
+    } else {
+        p.type = "password";
     }
 }
 
 // Character remaining counter
 $(document).ready(function() {
-    var start = 0;
-    var limit = 1000;
+    let start = 0;
+    let limit = 1000;
 
     $('#message').keyup(function() {
-        start = this.value.length
+        start = this.value.length;
         if (start > limit) {
             return false;
-        }
-        else if (start == 1000) {
+        } else if (start === 1000) {
             $("#remaining").html("Characters remaining: " + (limit - start)).css('color', 'red');
             swal("Oops!!", "Characters limit exceeded !", "info");
-        }
-        else if (start > 984) {
+        } else if (start > 984) {
             $("#remaining").html("Characters remaining: " + (limit - start)).css('color', 'red');
-        }
-        else if (start < 1000) {
+        } else if (start < 1000) {
             $("#remaining").html("Characters remaining: " + (limit - start)).css('color', 'black');
-        }
-        else {
+        } else {
             $("#remaining").html("Characters remaining: " + (limit)).css('color', 'black');
         }
-    })
+    });
 });
 
 // Inputmask (PHONE)
 $(document).ready(function() {
-    $(".phone").inputmask("9999-999-9999", {"onincomplete": function() {
+    $(".phone").inputmask("9999-999-9999", { "onincomplete": function() {
         swal("Opss !", "Incomplete phone. Please review !", "Info");
         $(".phone").val("");
-        return false; 
-    }})
-})
+        return false;
+    }});
+});
 
 // Script to accept until 2mb 'upload file'
 $(document).ready(function() {
-    var upload = document.getElementById('file');
+    let upload = document.getElementById('file');
     upload.onchange = function() {
-        if(this.files[0].size > 2 * 1048576) {
+        if (this.files[0].size > 2 * 1048576) {
             swal("Attention !", "Maximum allowed size is 2mb.", "info");
             this.value = "";
-        };
+        }
     };
 });
 
@@ -72,17 +67,17 @@ $(document).ready(function() {
 
 // If no message, hide all content
 $(document).ready(function() {
-    var verify = $('#chk_td').length;
-    if (verify == 0) {
+    let verify = $('#chk_td').length;
+    if (verify === 0) {
         $(".hidee").css('display', 'none');
         $('#msg').text("No message found!");
-        $('#refresh').html('<i class="fas fa-sync-alt fa-3x">')
+        $('#refresh').html('<i class="fas fa-sync-alt fa-3x"></i>');
     }
 });
 
 // Script to get TIME running at real time
 setInterval(function() {
-    var date = new Date();
+    let date = new Date();
     $('#clock, #mini-clock').html(
         (date.getHours() < 10 ? '0' : '') + date.getHours() + ":" +
         (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" +
@@ -92,30 +87,30 @@ setInterval(function() {
 
 // Script to update the page always at (0:00)
 function autoRefresh(h, m, s) {
-    var now = new Date(), then = new Date();
-    then.setHours(h,m,s,0);
+    let now = new Date(), then = new Date();
+    then.setHours(h, m, s, 0);
     if (then.getTime() < now.getTime()) {
         then.setDate(now.getDate() + 1);
     }
-    var timeout = (then.getTime() - now.getTime());
+    let timeout = (then.getTime() - now.getTime());
     setTimeout(function() {
         window.location.reload(true);
     }, timeout);
 }
-autoRefresh(0,0,0)
+autoRefresh(0, 0, 0);
 
 // Script to advice the users about logout at 5 min (after 25min)
 setTimeout(function() {
-    var notice = document.querySelector('#warning');
-    if(notice) {
+    let notice = document.querySelector('#warning');
+    if (notice) {
         notice.click();
     }
-}, 25 * 60000) // 25 Minutes
+}, 25 * 60000); // 25 Minutes
 
 // 
 setTimeout(function() {
-    var action = document.querySelector('#info');
-    if(action) {
+    let action = document.querySelector('#info');
+    if (action) {
         action.click();
     }
-}, 30 * 60000) // 30 Minutes
+}, 30 * 60000); // 30 Minutes
